@@ -89,7 +89,7 @@ void input()
     }
     else if (IsKeyPressed(KEY_KP_3))
     {
-        multiplier = .333333;
+        multiplier = .3;
         clear_screen();
     }
     else if (IsKeyPressed(KEY_KP_4))
@@ -104,7 +104,7 @@ void input()
     }
     else if (IsKeyPressed(KEY_KP_6))
     {
-        multiplier = .666666;
+        multiplier = .6;
         clear_screen();
     }
     else if (IsKeyPressed(KEY_KP_7))
@@ -153,6 +153,7 @@ void render()
     DrawText(str_sides, 800, 40, 18, WHITE);
     sprintf(str_multiplier, "Moltiplicatore : %.2f", multiplier);
     DrawText(str_multiplier, 800, 60, 18, WHITE);
+    DrawText("NUMPAD 1-9 set multiplier .1 - .9\n+/- Adjust multiplier +/- .01", 700, 900, 18, WHITE);
     EndDrawing();
 }
 void calc_intermedio(Vector2 punto_paragone)
