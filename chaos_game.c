@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 void setup()
 {
     // set anti aliasing
-    SetConfigFlags(FLAG_MSAA_4X_HINT);
+    SetConfigFlags(FLAG_MSAA_4X_HINT  );
     InitWindow(WIN_WIDTH, WIN_HEIGHT, "Chaos game  +/- on numpad adjusts multiplier and nums set base multiplier");
     // generate poligon vertices
     poligon_vertex = generate_poligon_vertices(faces);
@@ -175,14 +175,14 @@ void clear_screen()
     // draw a little circle at every poligon vertex
     for (int i = 0; i < faces; ++i)
     {
-        DrawCircleV(poligon_vertex[i], 3, ORANGE);
+        DrawCircleV(poligon_vertex[i], 1, ORANGE);
     }
     EndDrawing();
 }
 Vector2 *generate_poligon_vertices(int faces)
 {
     poligon_vertex = calloc(faces, sizeof(Vector2));
-    float two_radians = 2 * 3.14159;
+    float two_pi_radians = 2 * 3.14159;
     float x = 0.0;
     float y = 0.0;
     float radius = 400.0;
@@ -190,8 +190,8 @@ Vector2 *generate_poligon_vertices(int faces)
     for (int i = 0; i < faces; ++i)
     {
         // Slice 2PI on sin and cos and multiply by the radius
-        y = cos(two_radians * ((i) / (float)faces)) * radius;
-        x = sin(two_radians * ((i) / (float)faces)) * radius;
+        y = cos(two_pi_radians * ((i) / (float)faces)) * radius;
+        x = sin(two_pi_radians * ((i) / (float)faces)) * radius;
         // add poligon center offset
         x += window_center.x;
         y += window_center.y;
